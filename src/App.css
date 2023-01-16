@@ -1,0 +1,106 @@
+.App {
+  background:linear-gradient( indigo, #8B008B);
+  color: #fff;
+  height: 100vh;  
+  font-size: 25px;
+  overflow-x: hidden;
+  margin: 0;
+} 
+
+*{
+  font-size: 20px;
+}
+
+
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+p, small{
+  text-align: center;
+}
+nav{
+  overflow-x: hidden;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.active{
+  font-weight: bold;
+}
+nav *{
+  font-size: 1.5em;
+}
+
+.card{
+  background-color: brown;
+  width: 56vw;
+  margin: 10px auto;
+  border-radius:2vh;
+  padding: 2vw;
+  min-height: 25px;
+}
+
+.btn{
+  padding: 10px;
+  background-color: brown;
+  color: white ;
+  font-size : 1.0em;
+  border-radius: 2vw;
+  border-color:brown;
+  width:30vw;
+  text-align: center;
+  display:inline-block;
+  justify-self:center;
+}
+
+.bookmark{
+  font-size: 1.2em;
+  height:50px;
+  background: none !important;
+  border:none;
+  color: #fff;
+
+}
+
+.tags, .tags > option {
+ width: 25vw;
+  height: 59px;
+  margin: 6vw auto;
+  border-radius: 1vw;
+  font-size: 1em;
+  padding:0 20px ;
+}
+
+@media screen and (max-width:800px) {
+  .card{
+    width: 75vw;
+    padding: 5vw;
+  }
+  *{
+    font-size: 20px;
+  }
+  .bookmark {
+    font-size: 1.5em;
+    height:unset;
+  }
+  .tags, .tags > option {
+    height: 40px;
+    width: 50vw;
+    margin:5vw auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  
+  *{
+    font-size: 15px;
+  }
+}
