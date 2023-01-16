@@ -17,7 +17,7 @@ function Home() {
   const fetchOptions = async () => {
     const response = await fetch('https://api.quotable.io/tags')
     const data = await response.json()
-      .then((data) => (setOptions(data)));
+    setOptions(data);
   }
   const generateQuote = async () => {
     const response = tag === null ? await fetch('https://api.quotable.io/random') :
