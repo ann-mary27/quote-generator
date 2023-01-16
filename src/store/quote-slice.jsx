@@ -9,11 +9,9 @@ const quoteSlice = createSlice({
     },
     reducers: {
         updateQuote(state, action) {
-            {
                 state._id = action.payload._id;
                 state.content = action.payload.content;
                 state.author = action.payload.author;
-            }
         }
     }
 })
