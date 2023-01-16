@@ -53,7 +53,7 @@ nav *{
   background-color: brown;
   color: white ;
   font-size : 1.0em;
-  border-radius: 2vw;
+  border-radius: 5vw;
   border-color:brown;
   width:30vw;
   text-align: center;
@@ -63,7 +63,6 @@ nav *{
 
 .bookmark{
   font-size: 1.2em;
-  height:50px;
   background: none !important;
   border:none;
   color: #fff;
@@ -72,9 +71,9 @@ nav *{
 
 .tags, .tags > option {
  width: 25vw;
-  height: 59px;
+  height: 50px;
   margin: 6vw auto;
-  border-radius: 1vw;
+  border-radius: 5vw;
   font-size: 1em;
   padding:0 20px ;
 }
@@ -91,16 +90,29 @@ nav *{
     font-size: 1.5em;
     height:unset;
   }
-  .tags, .tags > option {
+  .tags, .tags  * {
     height: 40px;
-    width: 50vw;
-    margin:5vw auto;
+    width: 60vw;
+    margin:4vw auto;
+    border-radius: 5vw ;
   }
+  
 }
 
 @media screen and (max-width: 700px) {
   
   *{
     font-size: 15px;
+  }
+  .btn{
+    width:45vw;
+    margin: 10px auto;
+    border-radius:5vw;
+
+  }
+  .tags{
+    border-radius:5vw;
+    margin: 3px auto;
+    width: 50vw;
   }
 }
