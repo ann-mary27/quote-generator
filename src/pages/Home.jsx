@@ -1,5 +1,5 @@
 import Card from "../components/Card"
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { quoteActions } from "../store/quote-slice";
 import { Helmet } from "react-helmet";
@@ -7,24 +7,23 @@ import { Helmet } from "react-helmet";
 function Home() {
   useEffect(() => {
     fetchOptions();
-  }, [])
-  
-  const quote = useSelector((state) => state.quote);
+  })
+  const quote = useSelector((state) => state.quote.quote);
+  const tag=useSelector((state) => state.quote.tag);
+  const options=useSelector((state) => state.quote.options);
   const dispatch = useDispatch()
-  const [options, setOptions] = useState([]);
-  const [tag, setTag] = useState(null);
 
   const fetchOptions = async () => {
     const response = await fetch('https://api.quotable.io/tags')
     const data = await response.json()
-    setOptions(data);
+    dispatch(quoteActions.setOptions(data));
   }
   const generateQuote = async () => {
     const response = tag === null ? await fetch('https://api.quotable.io/random') :
-      await fetch(`https://api.quotable.io/random?tag=${tag}`);
+      await fetch(`https://api.quotable.io/random?tags=${tag}`);
     const data = await response.json();
-    console.log(data);
     dispatch(quoteActions.updateQuote(data))
+    
   }
   return (
     <div className="homepage">
@@ -32,16 +31,15 @@ function Home() {
         <title>Quote Generator</title>
       </Helmet>
       <Card quote={quote} showbm={true} />
-      <select className="tags" name='tag'>
+      <select className="tags" name='tag' defaultValue={tag? tag:''} onChange={(e) => {
+              
+              dispatch(quoteActions.setTag(e.target.value));
+            } }>
         {options === [] ? <option>Nothing here</option> : 
-          
           options.map((element) =>
           (<option
-
-            onClick={(element) => {
-              setTag(element.tag);
-            }}
-            value={element.tag}
+          
+            value={element.slug}
             key={element._id}>
             {element.name}
           </option>))
@@ -56,4 +54,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
