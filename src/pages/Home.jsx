@@ -23,6 +23,7 @@ function Home() {
     const response = tag === null ? await fetch('https://api.quotable.io/random') :
       await fetch(`https://api.quotable.io/random?tag=${tag}`);
     const data = await response.json();
+    console.log(data);
     dispatch(quoteActions.updateQuote(data))
   }
   return (
