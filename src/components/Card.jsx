@@ -12,13 +12,12 @@ export default function Card({quote, showbm}) {
       <p className="quote">{quote.content}</p>
       <div className="container">
         <div className="row">
-          <div className="col-2 "></div>
-          <div className="col-8">
+          <div className="col-1 "></div>
+          <div className="col-10">
             <p>
               {quote.author !== '' && <small className="author text-center">-{quote.author}</small>}
             </p>
           </div>
-          <div className="col-1"></div>
           <div className="col-1 ">
             {
               <button className="bookmark">
